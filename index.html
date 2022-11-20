@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+<style>
+        h1{
+        text-align: center;
+        font-family: 'Comforter Brush', cursive;
+    }
+    .todo{
+        display: flex;
+        justify-content: center;
+    }
+    .in{
+        display: flex;
+        justify-content: center;
+    }
+    #i{
+        background-color: rgb(0, 162, 255);
+    }
+    button{
+        font-family: 'Acme', sans-serif;
+        background-color: orange;
+        border: none;
+        height: 8vh;
+        width: 16vw;
+        font-size: large;
+    }
+    input{
+        font-family: 'Acme', sans-serif;
+        height: 7.3vh;
+        width: 32vw;
+        border-radius: 0;
+        border:1px solid black;
+        outline: none;
+        color: black;
+        font-size: large;
+        }
+
+    h2{
+        user-select: none;
+    }
+    .cards{
+        font-family: 'Comforter Brush', cursive;        
+        width: 30vw;
+        height: 10vh;
+        background-color: #f4ff8d;
+        margin: 0 auto;
+        margin-top: 5vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:7px 10px #f1eff1
+    }
+</style>
+<body>
+    <h1>Enter The Task</h1><br> <br>
+    <div class="todo">
+        
+    <div"><input id="in" type="text" placeholder="Enter Text"> <button id="i" onclick="log()">Submit</button> <button onclick="gone()">Finish All</button></div>
+    </div>
+    <div class="task">
+
+    </div>
+    
+</body>
+<script>
+    var Div = document.querySelector(".task");
+    var Enter = document.querySelector("#i");
+    var html;
+    Div.addEventListener("click", function(){
+        var a = document.querySelectorAll(".cards")
+        console.log(a);
+        for (let card of a) {
+        card.addEventListener("click", function(event){
+            
+            if(event.detail==1){
+            card.style.textDecoration="line-through"
+            }
+            if(event.detail==3){
+            card.remove()
+            }
+        })   
+        }
+    })
+    function log(){
+        var task = document.querySelector("#in")
+        html = '<h2 class="cards"> '+ task.value +'</h2>'
+        Div.insertAdjacentHTML("beforeend", html)
+        document.querySelector("#in").value = ""
+
+    }
+
+    function gone(){
+        task.remove
+    }
+
+</script>
+</html>
